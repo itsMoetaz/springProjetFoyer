@@ -12,7 +12,7 @@ public interface IReservationService {
     public Reservation getReservationById(long idReservation);
     public void deleteReservationById(long idReservation);
     public void mettreAJourEtAfficherReservations();
-    public void affecterReservationAuCHambre(Long reservation, Long chambre);
+    public void affecterReservationAuCHambre(Long reservationID, Long chambreID);
     public void desaffecterReservationDuCHambre(Long reservationID);
 
 }
