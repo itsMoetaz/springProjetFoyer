@@ -57,6 +57,11 @@ public class ChambreServiceImp implements IChambreService {
         return chambreRepository.findChambreByBT(idB, typeC);
     }
 
+    @Override
+    public List<Chambre> findChambreByET(Long cin) {
+        return chambreRepository.trouverChambreSelonEt( cin);
+    }
+
 //    @Override
 //    public List<Chambre> findByBloc_IdBlocAndTypeC(Long idBloc, TypeChambre typeC) {
 //        return chambreRepository.findByBloc_IdBlocAndTypeC(idBloc, typeC);

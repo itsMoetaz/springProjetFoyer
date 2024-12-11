@@ -9,6 +9,7 @@ import tn.esprit.springprojet1.entities.Etudiant;
 import tn.esprit.springprojet1.repositories.EtudiantRepository;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -50,6 +51,11 @@ public class EtudiantServiceImp implements IEtudiantService {
     @Override
     public void deleteEtudiantById(long idEtudiant) {
         etudiantRepository.deleteById(idEtudiant);
+    }
+
+    @Override
+    public List<Etudiant> recupererEtudiantsSelonEcoleEtDateNaisance(String e, Date d) {
+        return etudiantRepository.findAllByEcoleAndDateNaissanceGreaterThan(e, d);
     }
 
     private String[] getNullPropertyNames(Etudiant source) {

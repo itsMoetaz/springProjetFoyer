@@ -46,4 +46,9 @@ public class ChambreRestController {
     public List<Chambre> findChambreByBT(@PathVariable long idB, @PathVariable TypeChambre typeC) {
         return ichambreService.findChambreByBT(idB, typeC);
     }
+
+    @GetMapping("/findChambreByET/{cin}")
+    public List<Chambre>findChambreByEt(@PathVariable Long cin){
+        return ichambreService.findChambreByET(cin);
+    }
 }

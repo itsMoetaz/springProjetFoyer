@@ -27,9 +27,7 @@ public class Reservation implements Serializable {
     private boolean estValide;
     private LocalDate dateDebut;
     private LocalDate dateFin;
-    @ManyToMany
-    @JsonIgnore
-    @ToString.Exclude
+    @ManyToMany(cascade = CascadeType.ALL)
     private Set<Etudiant> etudiants;
     @ManyToOne
     @ToString.Exclude

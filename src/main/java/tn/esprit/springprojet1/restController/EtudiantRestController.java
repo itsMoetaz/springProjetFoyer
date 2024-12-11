@@ -1,10 +1,12 @@
 package tn.esprit.springprojet1.restController;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.springprojet1.entities.Etudiant;
 import tn.esprit.springprojet1.services.IEtudiantService;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -28,6 +30,14 @@ public class EtudiantRestController {
     public Etudiant getEtudiantById(@PathVariable long idEtudiant) {
         return ietudiantService.getEtudiantById(idEtudiant);
     }
+
+    @GetMapping("/getEtudiantByEcoleAndDateNaissance/{ecole}/{dateN}")
+    public List<Etudiant>getEtudiantByEcoleAndDateNaissance(@PathVariable("ecole") String ecole,
+                                                            @PathVariable("dateN") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date dateN) {
+        return ietudiantService.recupererEtudiantsSelonEcoleEtDateNaisance(ecole, dateN);
+    }
+
+
     @DeleteMapping("/deleteEtudiantById/{idEtudiant}")
     public void deleteEtudiantById(@PathVariable long idEtudiant) {
         ietudiantService.deleteEtudiantById(idEtudiant);

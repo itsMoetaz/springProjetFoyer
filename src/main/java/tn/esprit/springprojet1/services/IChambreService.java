@@ -13,4 +13,5 @@ public interface IChambreService {
     public void deleteChambreById(long idChambre);
 //    public List<Chambre> findByBloc_IdBlocAndTypeC(Long idBloc, TypeChambre typeC);
     public List<Chambre> findChambreByBT(Long idB, TypeChambre typeC);
+    public List<Chambre> findChambreByET(Long cin);
 }
